@@ -1,21 +1,11 @@
-# Web framework
 fastapi
 uvicorn[standard]
 python-multipart
-
-# LLM
 langchain-groq
 langchain-core
-
-# RAG
-faiss-cpu
-sentence-transformers
-numpy
-
-# Utils
+groq
 python-dotenv
 pydantic-settings
 httpx
-
-# WhatsApp
 twilio
+numpy
