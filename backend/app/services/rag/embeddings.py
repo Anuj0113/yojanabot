@@ -1,24 +1,18 @@
 """
-Lightweight embeddings using all-MiniLM-L6-v2
-Only 90MB — fits within Render free tier 512MB limit.
-Much better accuracy than TF-IDF.
+Embeddings using Groq API - free, zero memory, better accuracy.
+Uses nomic-embed-text model via Groq.
 """
-from sentence_transformers import SentenceTransformer
+import os
 import numpy as np
+import json
+import httpx
+from dotenv import load_dotenv
 
-MODEL_NAME = "all-MiniLM-L6-v2"
-_model = None
+load_dotenv()
 
-
-def get_model():
-    global _model
-    if _model is None:
-        print("Loading embedding model...")
-        _model = SentenceTransformer(
-            "all-MiniLM-L6-v2",
-            backend="onnx"
-        )
-    return _model
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+EMBED_MODEL = "nomic-embed-text-v1_5"
+GROQ_EMBED_URL = "https://api.groq.com/openai/v1/embeddings"
 
 
 def scheme_to_text(scheme: dict) -> str:
@@ -37,12 +31,32 @@ def scheme_to_text(scheme: dict) -> str:
     return " ".join(p for p in parts if p).strip()
 
 
+def get_embedding(text: str) -> np.ndarray:
+    """Get embedding from Groq API."""
+    headers = {
+        "Authorization": f"Bearer {GROQ_API_KEY}",
+        "Content-Type": "application/json"
+    }
+    payload = {
+        "model": EMBED_MODEL,
+        "input": text
+    }
+    response = httpx.post(GROQ_EMBED_URL, headers=headers, json=payload, timeout=30)
+    response.raise_for_status()
+    data = response.json()
+    return np.array(data["data"][0]["embedding"], dtype=np.float32)
+
+
 def embed_text(text: str) -> np.ndarray:
-    return get_model().encode(text, convert_to_numpy=True)
+    return get_embedding(text)
 
 
 def embed_schemes(schemes: list):
+    """Embed all schemes using Groq API."""
     texts = [scheme_to_text(s) for s in schemes]
-    model = get_model()
-    embeddings = model.encode(texts, convert_to_numpy=True, show_progress_bar=True)
-    return texts, embeddings
+    embeddings = []
+    for i, text in enumerate(texts):
+        print(f"Embedding scheme {i+1}/{len(texts)}: {schemes[i]['id']}")
+        emb = get_embedding(text)
+        embeddings.append(emb)
+    return texts, np.array(embeddings, dtype=np.float32)
