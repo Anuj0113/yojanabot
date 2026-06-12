@@ -1,18 +1,15 @@
 """
-Embeddings using Groq API - free, zero memory, better accuracy.
-Uses nomic-embed-text model via Groq.
+Embeddings using Google Gemini API - free, zero memory, excellent multilingual.
+Uses text-embedding-004 model - great for Hindi and Gujarati.
 """
 import os
 import numpy as np
-import json
 import httpx
 from dotenv import load_dotenv
 
 load_dotenv()
 
-GROQ_API_KEY = os.getenv("GROQ_API_KEY")
-EMBED_MODEL = "nomic-embed-text-v1_5"
-GROQ_EMBED_URL = "https://api.groq.com/openai/v1/embeddings"
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
 
 def scheme_to_text(scheme: dict) -> str:
@@ -32,31 +29,42 @@ def scheme_to_text(scheme: dict) -> str:
 
 
 def get_embedding(text: str) -> np.ndarray:
-    """Get embedding from Groq API."""
-    headers = {
-        "Authorization": f"Bearer {GROQ_API_KEY}",
-        "Content-Type": "application/json"
-    }
     payload = {
-        "model": EMBED_MODEL,
-        "input": text
+        "model": "models/gemini-embedding-001",
+        "content": {"parts": [{"text": text}]},
+        "taskType": "RETRIEVAL_DOCUMENT"
     }
-    response = httpx.post(GROQ_EMBED_URL, headers=headers, json=payload, timeout=30)
+    response = httpx.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key={GEMINI_API_KEY}",
+        json=payload,
+        timeout=30
+    )
     response.raise_for_status()
     data = response.json()
-    return np.array(data["data"][0]["embedding"], dtype=np.float32)
+    return np.array(data["embedding"]["values"], dtype=np.float32)
 
 
 def embed_text(text: str) -> np.ndarray:
-    return get_embedding(text)
+    payload = {
+        "model": "models/gemini-embedding-001",
+        "content": {"parts": [{"text": text}]},
+        "taskType": "RETRIEVAL_QUERY"
+    }
+    response = httpx.post(
+        f"https://generativelanguage.googleapis.com/v1beta/models/gemini-embedding-001:embedContent?key={GEMINI_API_KEY}",
+        json=payload,
+        timeout=30
+    )
+    response.raise_for_status()
+    data = response.json()
+    return np.array(data["embedding"]["values"], dtype=np.float32)
 
 
 def embed_schemes(schemes: list):
-    """Embed all schemes using Groq API."""
     texts = [scheme_to_text(s) for s in schemes]
     embeddings = []
     for i, text in enumerate(texts):
-        print(f"Embedding scheme {i+1}/{len(texts)}: {schemes[i]['id']}")
+        print(f"Embedding scheme {i+1}/{len(schemes)}: {schemes[i]['id']}")
         emb = get_embedding(text)
         embeddings.append(emb)
     return texts, np.array(embeddings, dtype=np.float32)
