@@ -1,0 +1,316 @@
+[
+  {
+    "id": "pm-ujjwala-yojana",
+    "name_en": "Pradhan Mantri Ujjwala Yojana (PMUY)",
+    "name_hi": "प्रधानमंत्री उज्ज्वला योजना",
+    "name_gu": "પ્રધાનમંત્રી ઉજ્જ્વલા યોજના",
+    "ministry": "Ministry of Petroleum and Natural Gas",
+    "benefit_en": "Free LPG connection with first refill and stove",
+    "benefit_hi": "मुफ्त LPG कनेक्शन, पहला रिफिल और चूल्हा",
+    "benefit_gu": "મફત LPG કનેક્શન, પ્રથમ રિફિલ અને ચૂલો",
+    "keywords": "gas cylinder LPG chulha rasoi cooking fuel mahila women ghar rसोई गैस सिलेंडर चूल्हा रसोई ઘર રાંધવું ગૅસ સિલિન્ડર",
+    "eligibility": {
+      "gender": "female",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["BPL", "SC", "ST", "OBC", "EWS", "all"],
+      "state": ["all"],
+      "occupation": ["any"],
+      "has_bank_account": true,
+      "has_ration_card": true,
+      "has_existing_lpg": false,
+      "custom_conditions": [
+        "Applicant must be woman of the household",
+        "Household must not already have LPG connection"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "BPL Ration Card", "Bank Passbook", "Passport size photo", "Self-declaration of no existing LPG connection"],
+    "how_to_apply": {"online_url": "https://www.pmuy.gov.in", "offline_where": "Nearest LPG distributor (HP Gas / Indane / Bharat Gas)"},
+    "tags": ["women", "cooking", "fuel", "BPL", "gas", "LPG", "chulha", "rasoi", "mahila", "free gas", "ghar", "gharelu", "cylinder", "गैस", "चूल्हा", "महिला", "ગૅસ", "મહિલા", "રસોઈ"],
+    "active": true
+  },
+  {
+    "id": "pm-awas-yojana-gramin",
+    "name_en": "Pradhan Mantri Awas Yojana Gramin (PMAY-G)",
+    "name_hi": "प्रधानमंत्री आवास योजना ग्रामीण",
+    "name_gu": "પ્રધાનમંત્રી આવાસ યોજના ગ્રામીણ",
+    "ministry": "Ministry of Rural Development",
+    "benefit_en": "Financial assistance to build a pucca house Rs 1.20 lakh to Rs 1.30 lakh",
+    "benefit_hi": "पक्का मकान बनाने के लिए 1.20 लाख से 1.30 लाख तक की सहायता",
+    "benefit_gu": "પાકું ઘર બાંધવા માટે 1.20 લાખ થી 1.30 લાખ રૂ. સહાય",
+    "keywords": "house home ghar makaan awas rehna housing pucca makan ghar chahiye muje ghar madad makan banane paisa ઘર મકાન આવાસ રહેવું પૈસા",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["BPL", "SC", "ST", "EWS"],
+      "state": ["all"],
+      "occupation": ["any"],
+      "has_bank_account": true,
+      "has_ration_card": true,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be homeless or living in kutcha or dilapidated house",
+        "Name must appear in Socio-Economic Caste Census SECC 2011 list",
+        "Must not own a pucca house anywhere in India"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "BPL Certificate", "Bank Passbook", "SECC 2011 registration proof", "Caste Certificate if SC ST"],
+    "how_to_apply": {"online_url": "https://pmayg.nic.in", "offline_where": "Gram Panchayat or Block Development Office"},
+    "tags": ["housing", "rural", "BPL", "construction", "ghar", "makaan", "awas", "rehna", "home", "pucca house", "makan", "naya ghar", "घर", "मकान", "आवास", "ઘર", "મકાન", "આવાસ"],
+    "active": true
+  },
+  {
+    "id": "pm-kisan-samman-nidhi",
+    "name_en": "PM Kisan Samman Nidhi (PM-KISAN)",
+    "name_hi": "पीएम किसान सम्मान निधि",
+    "name_gu": "પીએમ કિસાન સન્માન નિધિ",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "benefit_en": "Rs 6000 per year in 3 installments of Rs 2000 directly to farmer bank account",
+    "benefit_hi": "प्रति वर्ष 6000 रुपए, 2000-2000 की 3 किस्तों में सीधे बैंक खाते में",
+    "benefit_gu": "દર વર્ષે 6000 રૂ., 2000-2000 ની 3 હપ્તામાં સીધા બેંક ખાતામાં",
+    "keywords": "kisan farmer kheti fasal annadata krishi agriculture paisa income support kheda ખેડૂત ખેતી પૈસા આવક કિસાન",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["farmer"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must own cultivable land in applicant name",
+        "Institutional landholders not eligible",
+        "Government employees income tax payers and professionals not eligible"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Land ownership documents 7/12 Utara in Gujarat", "Bank Passbook", "Mobile number linked to Aadhaar"],
+    "how_to_apply": {"online_url": "https://pmkisan.gov.in", "offline_where": "Nearest Common Service Centre CSC or Patwari office"},
+    "tags": ["farming", "income support", "agriculture", "direct benefit", "kisan", "fasal", "kheti", "annadata", "farmer money", "किसान", "खेती", "फसल", "ખેડૂત", "ખેતી", "પૈસા"],
+    "active": true
+  },
+  {
+    "id": "ayushman-bharat-pmjay",
+    "name_en": "Ayushman Bharat PM Jan Arogya Yojana (PMJAY)",
+    "name_hi": "आयुष्मान भारत प्रधानमंत्री जन आरोग्य योजना",
+    "name_gu": "આયુષ્માન ભારત પ્રધાનમંત્રી જન આરોગ્ય યોજના",
+    "ministry": "Ministry of Health and Family Welfare",
+    "benefit_en": "Free health insurance Rs 5 lakh per family per year for hospital treatment",
+    "benefit_hi": "परिवार को प्रति वर्ष 5 लाख रुपए का मुफ्त स्वास्थ्य बीमा अस्पताल इलाज",
+    "benefit_gu": "પરિવારને દર વર્ષે 5 લાખ રૂ. મફત આરોગ્ય વીમા",
+    "keywords": "health hospital ilaaj dawai bimari sehat swasthya bima insurance treatment free poor family garib આરોગ્ય હૉસ્પિટલ સારવાર દવા બીમારી",
+    "eligibility": {
+      "gender": "any",
+      "age_min": null,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["BPL", "SC", "ST"],
+      "state": ["all"],
+      "occupation": ["any"],
+      "has_bank_account": null,
+      "has_ration_card": true,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be in SECC 2011 database OR have ration card from eligible category",
+        "Covers pre-existing diseases from day 1",
+        "Cashless treatment at empanelled government and private hospitals"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Ration Card", "Ayushman Card generated at CSC"],
+    "how_to_apply": {"online_url": "https://pmjay.gov.in", "offline_where": "Nearest Common Service Centre or empanelled hospital"},
+    "tags": ["health", "insurance", "hospital", "BPL", "family", "ilaaj", "dawai", "bimari", "sehat", "swasthya", "free treatment", "स्वास्थ्य", "इलाज", "बीमारी", "આરોગ્ય", "સારવાર", "દવા"],
+    "active": true
+  },
+  {
+    "id": "national-scholarship-portal",
+    "name_en": "National Scholarship Portal NSP Pre and Post Matric",
+    "name_hi": "राष्ट्रीय छात्रवृत्ति पोर्टल",
+    "name_gu": "રાષ્ટ્રીય શિષ્યવૃત્તિ પોર્ટલ",
+    "ministry": "Ministry of Education",
+    "benefit_en": "Scholarships from Rs 1000 to Rs 20000 per year for SC ST OBC minority students",
+    "benefit_hi": "SC ST OBC अल्पसंख्यक छात्रों को 1000 से 20000 रुपए तक छात्रवृत्ति",
+    "benefit_gu": "SC ST OBC લઘુમતી વિદ્યાર્થીઓ ને 1000 થી 20000 રૂ. શિષ્યવૃત્તિ",
+    "keywords": "scholarship student padhai school college fees vidyarthi shishyavritti chhatravritti education money study શિષ્યવૃત્તિ વિદ્યાર્થી ભણતર",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 5,
+      "age_max": 30,
+      "income_max_annual": 250000,
+      "category": ["SC", "ST", "OBC", "EWS", "minority"],
+      "state": ["all"],
+      "occupation": ["student"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be enrolled in a recognised school or college",
+        "85% attendance required"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Income Certificate parent", "Caste Certificate", "Bank Passbook", "Bonafide Certificate from institution", "Last year marksheet"],
+    "how_to_apply": {"online_url": "https://scholarships.gov.in", "offline_where": "School or college administration office"},
+    "tags": ["education", "scholarship", "student", "SC ST OBC", "padhai", "chhatravritti", "fees", "college", "school", "छात्रवृत्ति", "शिक्षा", "શિષ્યવૃત્તિ", "ભણતર"],
+    "active": true
+  },
+  {
+    "id": "pm-mudra-yojana",
+    "name_en": "Pradhan Mantri MUDRA Yojana (PMMY)",
+    "name_hi": "प्रधानमंत्री मुद्रा योजना",
+    "name_gu": "પ્રધાનમંત્રી મુદ્રા યોજના",
+    "ministry": "Ministry of Finance",
+    "benefit_en": "Collateral free business loan up to Rs 10 lakh. Shishu 50000 Kishore 5 lakh Tarun 10 lakh",
+    "benefit_hi": "बिना गारंटी के व्यवसाय ऋण शिशु 50000 किशोर 5 लाख तरुण 10 लाख",
+    "benefit_gu": "વગર ગૅરૅન્ટીએ ધંધા ઋણ શિશુ 50000 કિશોર 5 લાખ તરૂણ 10 લાખ",
+    "keywords": "business loan dhanda vyapaar rin udhyog start karna paise chahiye no collateral guarantee free loan small business self employment ધંધો લોન વ્યવસાય",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["small_business", "self_employed", "any"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "For non-farm income generating activities only",
+        "No income tax defaulter"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "PAN Card", "Bank Passbook", "Business plan or proof of business", "Caste Certificate for lower interest rates"],
+    "how_to_apply": {"online_url": "https://www.mudra.org.in", "offline_where": "Any nationalised bank regional rural bank or microfinance institution"},
+    "tags": ["business", "loan", "entrepreneur", "self-employment", "dhanda", "vyapaar", "rin", "no guarantee", "व्यापार", "ऋण", "ધંધો", "લોન"],
+    "active": true
+  },
+  {
+    "id": "pm-fasal-bima-yojana",
+    "name_en": "Pradhan Mantri Fasal Bima Yojana (PMFBY)",
+    "name_hi": "प्रधानमंत्री फसल बीमा योजना",
+    "name_gu": "પ્રધાનમંત્રી ફસલ વીમા યોજના",
+    "ministry": "Ministry of Agriculture and Farmers Welfare",
+    "benefit_en": "Crop insurance for farmers covering losses from natural calamities pests disease flood drought",
+    "benefit_hi": "फसल खराब होने पर बीमा बाढ़ सूखा कीड़े बीमारी से नुकसान",
+    "benefit_gu": "પાક નુકસાન પર વીમો પૂર દુષ્કાળ જીવાત બીમારીથી નુકસાન",
+    "keywords": "fasal bima crop insurance kisan farmer flood drought nuksan loss kheti compensation paak vima ફસલ વીમો પાક નુકસાન",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["farmer"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must have sown the notified crop in the notified area",
+        "Loanee farmers auto-enrolled non-loanee farmers must apply separately"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Land records 7/12", "Bank Passbook", "Sowing certificate from Patwari"],
+    "how_to_apply": {"online_url": "https://pmfby.gov.in", "offline_where": "Nearest bank branch or Common Service Centre"},
+    "tags": ["farming", "insurance", "crop", "agriculture", "weather", "fasal", "bima", "nuksan", "flood", "drought", "फसल बीमा", "ફસલ વીમો"],
+    "active": true
+  },
+  {
+    "id": "sukanya-samriddhi-yojana",
+    "name_en": "Sukanya Samriddhi Yojana (SSY)",
+    "name_hi": "सुकन्या समृद्धि योजना",
+    "name_gu": "સુકન્યા સમૃદ્ધિ યોજના",
+    "ministry": "Ministry of Finance",
+    "benefit_en": "High interest savings account for girl child daughter. Interest rate 8.2 percent tax exempt",
+    "benefit_hi": "बेटी के लिए उच्च ब्याज बचत खाता 8.2 प्रतिशत ब्याज टैक्स छूट",
+    "benefit_gu": "દીકરી માટે ઊંચા વ્યાજ બચત ખાતું 8.2 ટકા વ્યાજ ટૅક્સ ફાયદો",
+    "keywords": "beti ladki daughter girl savings bachat account dikri dikari future education marriage fund સુકન્યા દીકરી બચત ખાતું",
+    "eligibility": {
+      "gender": "female",
+      "age_min": 0,
+      "age_max": 10,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["any"],
+      "has_bank_account": null,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Account opened by parent or legal guardian for girl child",
+        "Girl must be below 10 years at time of account opening",
+        "Maximum 2 accounts per family one per girl child"
+      ]
+    },
+    "documents_required": ["Girl child Birth Certificate", "Parent Aadhaar Card", "Parent PAN Card", "Address proof"],
+    "how_to_apply": {"online_url": null, "offline_where": "Any post office or authorised bank branch"},
+    "tags": ["girl child", "savings", "education", "financial security", "beti", "ladki", "daughter", "bachat", "dikri", "future", "बेटी", "बचत", "દીકરી", "બચત"],
+    "active": true
+  },
+  {
+    "id": "e-shram-card",
+    "name_en": "e-Shram Card Unorganised Workers Registration",
+    "name_hi": "ई-श्रम कार्ड असंगठित मजदूर पंजीकरण",
+    "name_gu": "ઈ-શ્રમ કાર્ડ અસંગઠિત મજૂર નોંધણી",
+    "ministry": "Ministry of Labour and Employment",
+    "benefit_en": "Rs 2 lakh accident insurance and identity card for daily wage unorganised workers labourers",
+    "benefit_hi": "2 लाख दुर्घटना बीमा और दिहाड़ी मजदूर असंगठित श्रमिकों के लिए पहचान पत्र",
+    "benefit_gu": "2 લાખ અકસ્માત વીમો અને દૈનિક મજૂર અસંગઠિત શ્રમિકો માટે ઓળખ કાર્ড",
+    "keywords": "majdoor labour worker daily wage shramik card identity accident insurance dihadi kaam karna unorganised મજૂર શ્રમ કાર્ડ",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 16,
+      "age_max": 59,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["daily_wage", "labourer", "domestic_worker", "street_vendor", "construction", "any_unorganised"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be unorganised sector worker",
+        "Must not be an EPFO or ESIC member",
+        "Must not be an income tax payer"
+      ]
+    },
+    "documents_required": ["Aadhaar Card mobile linked", "Bank Passbook"],
+    "how_to_apply": {"online_url": "https://eshram.gov.in", "offline_where": "Common Service Centre CSC free of charge"},
+    "tags": ["labour", "worker", "insurance", "identity", "daily wage", "majdoor", "shramik", "dihadi", "e-shram", "मजदूर", "श्रमिक", "મજૂર", "શ્રમ"],
+    "active": true
+  },
+  {
+    "id": "pm-jan-dhan-yojana",
+    "name_en": "Pradhan Mantri Jan Dhan Yojana (PMJDY)",
+    "name_hi": "प्रधानमंत्री जन-धन योजना",
+    "name_gu": "પ્રધાનમંત્રી જન-ધન યોજના",
+    "ministry": "Ministry of Finance",
+    "benefit_en": "Zero balance bank account with RuPay debit card Rs 2 lakh accident insurance Rs 30000 life cover",
+    "benefit_hi": "जीरो बैलेंस बैंक खाता RuPay कार्ड 2 लाख दुर्घटना बीमा",
+    "benefit_gu": "ઝીરો બૅલૅન્સ બૅંક ખાતું RuPay કાર્ડ 2 લાખ અકસ્માત વીમો",
+    "keywords": "bank account kholna zero balance no money free account khata garib poor financial inclusion बैंक खाता ખાતું",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 10,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["all"],
+      "occupation": ["any"],
+      "has_bank_account": false,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must not already have a bank account"
+      ]
+    },
+    "documents_required": ["Aadhaar Card OR Voter ID OR NREGA card OR driving licence", "One passport size photo"],
+    "how_to_apply": {"online_url": "https://pmjdy.gov.in", "offline_where": "Any bank branch"},
+    "tags": ["banking", "financial inclusion", "insurance", "zero balance", "bank account", "khata", "garib", "बैंक खाता", "ખાતું"],
+    "active": true
+  }
+]

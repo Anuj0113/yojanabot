@@ -1,0 +1,161 @@
+[
+  {
+    "id": "gujarat-ikhedut-portal",
+    "name_en": "iKhedut Portal Gujarat Farmer Schemes",
+    "name_hi": "iKhedut पोर्टल गुजरात किसान योजनाएं",
+    "name_gu": "iKhedut પોર્ટલ ગુજરાત ખેડૂત સહાય",
+    "ministry": "Government of Gujarat Agriculture Department",
+    "benefit_en": "Subsidies on farm equipment seeds irrigation drip system up to 50 to 80 percent cost for Gujarat farmers",
+    "benefit_hi": "गुजरात किसानों को कृषि उपकरण बीज सिंचाई पर 50-80% सब्सिडी",
+    "benefit_gu": "ગુજરાત ખેડૂતોને ખેત ઓજારો બિયારણ ટપક સિંચાઈ પર 50-80% સહાય",
+    "keywords": "ikhedut gujarat kisan farmer kheti subsidy equipment drip irrigation seeds ખેડૂત ગુજરાત સહાય ખેત ઓજાર સિંચાઈ",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["GJ"],
+      "occupation": ["farmer"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be a registered farmer in Gujarat",
+        "Land must be in Gujarat",
+        "Registration on iKhedut portal required before applying"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "7/12 Utara land record", "Bank Passbook", "iKhedut portal registration number"],
+    "how_to_apply": {"online_url": "https://ikhedut.gujarat.gov.in", "offline_where": "Nearest Agriculture Department office or Gram Seva Kendra"},
+    "tags": ["farming", "subsidy", "Gujarat", "equipment", "irrigation", "ikhedut", "kisan", "kheti", "ખેડૂત", "સહાય", "ગુજરાત"],
+    "active": true
+  },
+  {
+    "id": "gujarat-manav-garima-yojana",
+    "name_en": "Manav Garima Yojana Gujarat SC Artisan Toolkit",
+    "name_hi": "मानव गरिमा योजना गुजरात SC कारीगर टूलकिट",
+    "name_gu": "માનવ ગરિમા યોજના ગુજરાત SC કારીગર ઓજાર",
+    "ministry": "Government of Gujarat Social Justice Department",
+    "benefit_en": "Free toolkit worth Rs 15000 for SC artisans barber tailor cobbler to start self employment",
+    "benefit_hi": "SC कारीगरों को 15000 रुपए का मुफ्त टूलकिट नाई दर्जी मोची के लिए",
+    "benefit_gu": "SC કારીગરોને 15000 રૂ. ના મફત ઓજાર નાઈ દરજી મોચી માટે",
+    "keywords": "SC artisan toolkit free tools self employment naai darzi mochi barber tailor cobbler gujrat garima ગરિમા SC કારીગર ઓજાર",
+    "eligibility": {
+      "gender": "any",
+      "age_min": 18,
+      "age_max": null,
+      "income_max_annual": 47000,
+      "category": ["SC"],
+      "state": ["GJ"],
+      "occupation": ["artisan", "labourer", "self_employed"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be resident of Gujarat",
+        "Annual family income below Rs 47000 rural or Rs 60000 urban",
+        "Must belong to Scheduled Caste"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Caste Certificate SC", "Income Certificate", "Bank Passbook", "Residence proof"],
+    "how_to_apply": {"online_url": "https://esamajkalyan.gujarat.gov.in", "offline_where": "District Social Justice Office or e-Samaj Kalyan portal"},
+    "tags": ["SC", "artisan", "self-employment", "toolkit", "Gujarat", "naai", "darzi", "mochi", "free tools", "ઓજાર", "SC", "ગુજરાત"],
+    "active": true
+  },
+  {
+    "id": "gujarat-viklang-sahay-yojana",
+    "name_en": "Viklang Sahay Yojana Gujarat Divyang Disability Assistance",
+    "name_hi": "विकलांग सहाय योजना गुजरात दिव्यांग सहायता",
+    "name_gu": "વિકલાંગ સહાય યોજના ગુજરાત અપંગ સહાય",
+    "ministry": "Government of Gujarat Social Justice Department",
+    "benefit_en": "Free assistive devices wheelchairs hearing aids crutches tricycles for disabled persons divyang",
+    "benefit_hi": "विकलांग दिव्यांग व्यक्तियों को मुफ्त उपकरण व्हीलचेयर श्रवण यंत्र बैसाखी",
+    "benefit_gu": "અપંગ વ્યક્તિઓ ને મફત સાધનો વ્હીલચૅર સ્ક્રૂ ક્ર્ચ",
+    "keywords": "viklang divyang disability handicap wheelchair hearing aid crutch apang sahay free devices અપંગ વિકલાંગ સહાય",
+    "eligibility": {
+      "gender": "any",
+      "age_min": null,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["GJ"],
+      "occupation": ["any"],
+      "has_bank_account": null,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must have minimum 40% disability certificate",
+        "Must be a Gujarat resident"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Disability Certificate 40% or above", "Residence proof", "Passport size photo"],
+    "how_to_apply": {"online_url": "https://esamajkalyan.gujarat.gov.in", "offline_where": "District Social Justice and Empowerment Office"},
+    "tags": ["disability", "divyang", "viklang", "assistive device", "wheelchair", "Gujarat", "apang", "વિકલાંગ", "અપંગ", "સહાય"],
+    "active": true
+  },
+  {
+    "id": "gujarat-namo-saraswati-yojana",
+    "name_en": "Namo Saraswati Vigyan Sadhana Yojana Gujarat Science Girls Scholarship",
+    "name_hi": "नमो सरस्वती विज्ञान साधना योजना गुजरात छात्राओं को छात्रवृत्ति",
+    "name_gu": "નમો સરસ્વતી વિજ્ઞાન સાધના યોજના ગુજરાત વિજ્ઞાન પ્રવાહ શિષ્યવૃત્તિ",
+    "ministry": "Government of Gujarat Education Department",
+    "benefit_en": "Rs 10000 per year scholarship for girls studying Science stream Class 11 and 12 in Gujarat",
+    "benefit_hi": "गुजरात में विज्ञान स्ट्रीम 11वीं 12वीं की छात्राओं को 10000 रुपए छात्रवृत्ति",
+    "benefit_gu": "ગુજરાતની વિજ્ઞાન પ્રવાહ ધો.11-12 ની વિદ્યાર્થિઓ ને 10000 રૂ. શિષ્યવૃત્તિ",
+    "keywords": "girl scholarship science stream class 11 12 Gujarat beti ladki vigyan chhatravritti shishyavritti dikri ભણતર દીકરી વિજ્ઞાન",
+    "eligibility": {
+      "gender": "female",
+      "age_min": 15,
+      "age_max": 20,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["GJ"],
+      "occupation": ["student"],
+      "has_bank_account": true,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be studying Science stream in Class 11 or 12",
+        "Must study in a Gujarat government or grant-in-aid school",
+        "Must have passed Class 10 with minimum 50% marks"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Class 10 marksheet", "School bonafide certificate", "Bank Passbook in student name"],
+    "how_to_apply": {"online_url": "https://scholarships.gujarat.gov.in", "offline_where": "School administration or District Education Office"},
+    "tags": ["girl", "education", "science", "scholarship", "Gujarat", "class 11", "class 12", "beti", "dikri", "vigyan", "છોકરી", "વિજ્ઞાન", "શિષ્યવૃત્તિ"],
+    "active": true
+  },
+  {
+    "id": "gujarat-chiranjeevi-yojana",
+    "name_en": "Mukhyamantri Chiranjeevi Swasthya Bima Yojana Gujarat Health Insurance",
+    "name_hi": "मुख्यमंत्री चिरंजीवी स्वास्थ्य बीमा योजना गुजरात",
+    "name_gu": "મુખ્યમંત્રી ચિરંજીવી સ્વાસ્થ્ય વીમા યોજના ગુજરાત",
+    "ministry": "Government of Gujarat Health Department",
+    "benefit_en": "Health insurance Rs 10 lakh per family per year cashless hospital treatment Gujarat residents",
+    "benefit_hi": "गुजरात परिवार को 10 लाख रुपए का स्वास्थ्य बीमा अस्पताल में नकदरहित इलाज",
+    "benefit_gu": "ગુજરાત પરિવારને 10 લાખ રૂ. આરોગ્ય વીમો હૉસ્પિટલ કૅશલૅસ સારવાર",
+    "keywords": "chiranjeevi health insurance gujarat hospital cashless ilaaj bimari sehat swasthya gujarati resident આરોગ્ય વીમો ગુજરાત સારવાર",
+    "eligibility": {
+      "gender": "any",
+      "age_min": null,
+      "age_max": null,
+      "income_max_annual": null,
+      "category": ["all"],
+      "state": ["GJ"],
+      "occupation": ["any"],
+      "has_bank_account": null,
+      "has_ration_card": null,
+      "has_existing_lpg": null,
+      "custom_conditions": [
+        "Must be a Gujarat resident",
+        "BPL families get it free others pay Rs 850 per year premium",
+        "Covers 1576 package procedures"
+      ]
+    },
+    "documents_required": ["Aadhaar Card", "Ration Card or residence proof", "Passport size photo"],
+    "how_to_apply": {"online_url": "https://health.gujarat.gov.in", "offline_where": "Nearest empanelled hospital or Common Service Centre"},
+    "tags": ["health", "insurance", "Gujarat", "hospital", "cashless", "chiranjeevi", "ilaaj", "sehat", "ગુજરાત", "આરોગ્ય", "વીમો", "સારવાર"],
+    "active": true
+  }
+]
