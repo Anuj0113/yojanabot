@@ -24,7 +24,7 @@ Your job is to have a SHORT conversation to collect the user's profile. You need
 7. annual family income (approximate)
 8. has_bank_account (yes/no)
 9. has_ration_card (yes/no)
-10. has_existing_lpg (yes/no) — only ask if user is female
+10. has_existing_lpg (yes/no) — ONLY ask this if gender is female. Skip entirely for male users.
 
 RULES:
 - Ask only 1-2 questions at a time. Never ask all at once.
@@ -50,11 +50,18 @@ def extract_profile_from_response(response_text: str):
     try:
         json_start = response_text.index("PROFILE_COMPLETE:") + len("PROFILE_COMPLETE:")
         json_str = response_text[json_start:].strip()
-        if "\n" in json_str:
-            json_str = json_str.split("\n")[0].strip()
+        # Get first line only
+        json_str = json_str.split("\n")[0].strip()
+        # Remove any trailing text after the JSON
+        if "}" in json_str:
+            json_str = json_str[:json_str.rindex("}")+1]
         profile = json.loads(json_str)
+        # Validate minimum required fields
+        if not profile.get("gender") or not profile.get("state"):
+            return None
         return profile
-    except Exception:
+    except Exception as e:
+        print(f"Profile extraction error: {e}")
         return None
 
 
