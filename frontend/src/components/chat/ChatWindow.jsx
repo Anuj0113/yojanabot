@@ -56,9 +56,9 @@ export default function ChatWindow({ messages, loading, onSend, onReset }) {
 
   const handleSend = () => {
     if (!input.trim() || loading) return;
-    onSend(input.trim());
+    onSend(input.trim(), lang.full);
     setInput("");
-  };
+};
 
   const handleKey = (e) => {
     if (e.key === "Enter" && !e.shiftKey) {
@@ -118,7 +118,7 @@ export default function ChatWindow({ messages, loading, onSend, onReset }) {
               ].map((s, i) => {
                 const text = lang.code === "hi-IN" ? s.hi : lang.code === "gu-IN" ? s.gu : s.en;
                 return (
-                  <button key={i} onClick={() => onSend(text)}
+                  <button key={i} onClick={() => onSend(text, lang.full)}
                     className="text-xs bg-white border border-orange-200 text-orange-600 rounded-full px-4 py-2 hover:bg-orange-50 transition-colors mx-auto">
                     {text}
                   </button>

@@ -8,14 +8,17 @@ export function useChat() {
   const [eligibleSchemes, setEligible] = useState([]);
   const [partialSchemes, setPartial]   = useState([]);
 
-  const send = useCallback(async (text) => {
+const send = useCallback(async (text, language = "English") => {
     const userMsg = { role: "user", content: text };
+    const systemLangMsg = messages.length === 0 
+      ? `[User language preference: ${language}] ${text}`
+      : text;
     const updatedHistory = [...messages, userMsg];
     setMessages(updatedHistory);
     setLoading(true);
 
     try {
-      const data = await sendMessage(text, messages);
+      const data = await sendMessage(systemLangMsg, messages);
       const botMsg = { role: "assistant", content: data.reply };
       setMessages([...updatedHistory, botMsg]);
 
