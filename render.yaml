@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: yojanabot-backend
+    runtime: python
+    rootDir: backend
+    buildCommand: pip install -r requirements.txt && python app/services/rag/vector_store.py
+    startCommand: python -m uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+      - key: GROQ_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_WHATSAPP_NUMBER
+        sync: false
