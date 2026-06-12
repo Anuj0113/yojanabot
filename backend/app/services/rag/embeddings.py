@@ -14,7 +14,10 @@ def get_model():
     global _model
     if _model is None:
         print("Loading embedding model...")
-        _model = SentenceTransformer(MODEL_NAME)
+        _model = SentenceTransformer(
+            "all-MiniLM-L6-v2",
+            backend="onnx"
+        )
     return _model
 
 

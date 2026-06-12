@@ -10,3 +10,5 @@ httpx
 twilio
 numpy
 sentence-transformers
+onnxruntime
+optimum[onnxruntime]
