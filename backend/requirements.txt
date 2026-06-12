@@ -1,19 +1,21 @@
+# Web framework
 fastapi
 uvicorn[standard]
 python-multipart
-langchain
+
+# LLM
 langchain-groq
-langchain-google-genai
-groq
+langchain-core
+
+# RAG
 faiss-cpu
 sentence-transformers
-deep-translator
-langdetect
-pymongo
-pydantic
-pydantic-settings
-python-dotenv
-httpx
-aiofiles
-twilio
 numpy
+
+# Utils
+python-dotenv
+pydantic-settings
+httpx
+
+# WhatsApp
+twilio
