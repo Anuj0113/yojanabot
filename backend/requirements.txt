@@ -9,3 +9,4 @@ pydantic-settings
 httpx
 twilio
 numpy
+sentence-transformers
