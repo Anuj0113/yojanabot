@@ -1,5 +1,5 @@
 from typing import Literal
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 @dataclass
@@ -13,6 +13,81 @@ class EligibilityResult:
     confidence: float
 
 
+# Accurate income limits and exclusion rules per scheme based on official data
+SCHEME_INCOME_RULES = {
+    # PM Kisan: No income limit BUT excludes income tax payers, govt employees, professionals
+    "pm-kisan-samman-nidhi": {
+        "income_max": None,
+        "excludes_income_tax_payer": True,
+        "excludes_govt_employee": True,
+        "excludes_professional": True,  # doctors, lawyers, engineers, CAs
+        "income_tax_threshold": 250000,  # if income > 2.5L likely files taxes
+    },
+    # Ayushman Bharat: Rs 10,000/month = Rs 1.2 lakh/year max
+    "ayushman-bharat-pmjay": {
+        "income_max": 120000,
+        "excludes_four_wheeler": True,
+        "excludes_govt_employee": True,
+    },
+    # NSP: Rs 2.5 lakh for most pre-matric, Rs 3.5-4.5 lakh for higher education
+    "national-scholarship-portal": {
+        "income_max": 350000,
+    },
+    # MUDRA: No income limit
+    "pm-mudra-yojana": {
+        "income_max": None,
+        "excludes_income_tax_defaulter": True,
+    },
+    # PMAY-G: Based on SECC 2011, no strict income limit but must be BPL/homeless
+    "pm-awas-yojana-gramin": {
+        "income_max": None,
+        "must_be_homeless_or_kutcha": True,
+    },
+    # Ujjwala: BPL household, state-defined income limit (~Rs 1 lakh/year)
+    "pm-ujjwala-yojana": {
+        "income_max": 100000,
+    },
+    # Fasal Bima: No income limit for farmers
+    "pm-fasal-bima-yojana": {
+        "income_max": None,
+    },
+    # SSY: No income limit
+    "sukanya-samriddhi-yojana": {
+        "income_max": None,
+    },
+    # e-Shram: Must not be income tax payer
+    "e-shram-card": {
+        "income_max": None,
+        "excludes_income_tax_payer": True,
+        "income_tax_threshold": 250000,
+    },
+    # Jan Dhan: No income limit
+    "pm-jan-dhan-yojana": {
+        "income_max": None,
+    },
+    # iKhedut: No income limit for farmers
+    "gujarat-ikhedut-portal": {
+        "income_max": None,
+    },
+    # Manav Garima: Rs 47,000/year rural, Rs 60,000/year urban
+    "gujarat-manav-garima-yojana": {
+        "income_max": 47000,
+    },
+    # Viklang Sahay: No income limit
+    "gujarat-viklang-sahay-yojana": {
+        "income_max": None,
+    },
+    # Namo Saraswati: No income limit
+    "gujarat-namo-saraswati-yojana": {
+        "income_max": None,
+    },
+    # Chiranjeevi: No income limit (BPL free, others pay Rs 850/year)
+    "gujarat-chiranjeevi-yojana": {
+        "income_max": None,
+    },
+}
+
+
 def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
     rules = scheme.get("eligibility", {})
     name  = scheme.get("name_en", scheme.get("id", "Unknown"))
@@ -22,7 +97,10 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
     failed  = []
     missing = []
 
-    # 1. Gender
+    income = profile.get("income_annual")
+    occupation = profile.get("occupation", "")
+
+    # ── 1. Gender ────────────────────────────────────────────
     required_gender = rules.get("gender", "any")
     if required_gender != "any":
         if profile.get("gender") is None:
@@ -32,7 +110,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append(f"Gender matches ({required_gender})")
 
-    # 2. Age
+    # ── 2. Age ───────────────────────────────────────────────
     age_min = rules.get("age_min")
     age_max = rules.get("age_max")
     age = profile.get("age")
@@ -49,19 +127,38 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
             else:
                 matched.append(f"Age {age} is within eligible range")
 
-    # 3. Income
-    income_max = rules.get("income_max_annual")
-    income = profile.get("income_annual")
+    # ── 3. Accurate income check ─────────────────────────────
+    scheme_income_rules = SCHEME_INCOME_RULES.get(sid, {})
+    income_max = scheme_income_rules.get("income_max")
 
     if income_max is not None:
         if income is None:
             missing.append("annual_income")
         elif income > income_max:
-            failed.append(f"Income limit is Rs {income_max:,}/year (yours: Rs {income:,})")
+            failed.append(f"Income Rs {income:,}/year exceeds limit of Rs {income_max:,}/year for this scheme")
         else:
             matched.append(f"Income Rs {income:,} is within the limit")
 
-    # 4. Category
+    # ── 3b. Income tax payer exclusion ───────────────────────
+    if scheme_income_rules.get("excludes_income_tax_payer"):
+        tax_threshold = scheme_income_rules.get("income_tax_threshold", 250000)
+        if income and income > tax_threshold:
+            failed.append(f"Income tax payers (income > Rs {tax_threshold:,}) are not eligible")
+        elif income and income <= tax_threshold:
+            matched.append("Not an income tax payer — eligible")
+
+    # ── 3c. Govt employee exclusion ──────────────────────────
+    if scheme_income_rules.get("excludes_govt_employee"):
+        if occupation and "government" in occupation.lower():
+            failed.append("Government employees are not eligible for this scheme")
+
+    # ── 3d. Professional exclusion (PM Kisan) ────────────────
+    if scheme_income_rules.get("excludes_professional"):
+        professional_keywords = ["doctor", "lawyer", "engineer", "ca", "chartered", "architect"]
+        if occupation and any(k in occupation.lower() for k in professional_keywords):
+            failed.append("Professionals (doctors, lawyers, engineers, CAs) are not eligible")
+
+    # ── 4. Category ──────────────────────────────────────────
     required_cats = rules.get("category", ["all"])
     if "all" not in required_cats:
         user_cat = profile.get("category")
@@ -72,7 +169,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append(f"Category {user_cat} is eligible")
 
-    # 5. State
+    # ── 5. State ─────────────────────────────────────────────
     required_states = rules.get("state", ["all"])
     if "all" not in required_states:
         user_state = profile.get("state")
@@ -83,7 +180,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append(f"Available in your state ({user_state})")
 
-    # 6. Occupation
+    # ── 6. Occupation ────────────────────────────────────────
     required_occupations = rules.get("occupation", ["any"])
     if "any" not in required_occupations:
         user_occ = profile.get("occupation")
@@ -99,7 +196,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
             else:
                 matched.append(f"Occupation '{user_occ}' is eligible")
 
-    # 7. Bank Account
+    # ── 7. Bank Account ──────────────────────────────────────
     req_bank = rules.get("has_bank_account")
     if req_bank is True:
         if profile.get("has_bank_account") is None:
@@ -112,7 +209,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         if profile.get("has_bank_account") is True:
             failed.append("Scheme is for those without existing bank accounts")
 
-    # 8. Ration Card
+    # ── 8. Ration Card ───────────────────────────────────────
     req_ration = rules.get("has_ration_card")
     if req_ration is True:
         if profile.get("has_ration_card") is None:
@@ -122,7 +219,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append("Ration card requirement met")
 
-    # 9. Existing LPG
+    # ── 9. Existing LPG ─────────────────────────────────────
     req_lpg = rules.get("has_existing_lpg")
     if req_lpg is False:
         if profile.get("has_existing_lpg") is True:
@@ -132,7 +229,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append("No existing LPG — eligible for new connection")
 
-    # 10. Disability
+    # ── 10. Disability ───────────────────────────────────────
     custom = rules.get("custom_conditions", [])
     needs_disability = any("disability" in c.lower() for c in custom)
     if needs_disability:
@@ -144,7 +241,7 @@ def check_eligibility(profile: dict, scheme: dict) -> EligibilityResult:
         else:
             matched.append(f"Disability {disability}% meets requirement")
 
-    # Determine status
+    # ── Determine status ─────────────────────────────────────
     total_checks = len(matched) + len(failed) + len(missing)
 
     if len(failed) > 0:
